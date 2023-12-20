@@ -18,7 +18,7 @@ form1.addEventListener("submit", (e) => {
   validateField(password, 2, "Password cannot be empty");
 });
 
-form2.submit()
+
 
 let validateField = (field, serial, message) => {
   if (field.value.trim() === "") {
@@ -63,3 +63,10 @@ function isValidField(field) {
     );
   }
 }
+
+form2.addEventListener("submit", (e) => {
+  // e.preventDefault();
+
+  validateField(username, 0, "Username cannot be empty");
+  validateField(password, 2, "Password cannot be empty");
+});

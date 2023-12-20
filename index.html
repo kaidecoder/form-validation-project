@@ -1,66 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form Validation Project</title>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./styles.css" />
     <script src="./main.js" defer></script>
-    <script src="https://kit.fontawesome.com/8ec63f7015.js" crossorigin="anonymous"></script>
-</head>
-<body>
+    <script
+      src="https://kit.fontawesome.com/8ec63f7015.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <div class="container">
-        <form id="form">
-
-            <div class="social">
-                <div class="title">Get Started</div>
-                <div class="question">Already have an account?
-                    <br>
-                    <span>Sign In</span>
-                </div>
-                <div class="btn">
-                    <div class="btn-1"><img src="./icons8-google-48.png" alt="">Sign Up</div>
-                    <div class="btn-2"><img src="./icons8-facebook-32.png" alt="">Sign Up</div>
-                </div>
-                <div class="or">OR</div>
+      <form id="form">
+        <div class="social">
+          <div class="title">Get Started</div>
+          <div class="question">
+            Already have an account?
+            <br />
+            <span>Sign In</span>
+          </div>
+          <div class="btn">
+            <div class="btn-1">
+              <img src="./icons8-google-48.png" alt="" />Sign Up
             </div>
-            <!-- /**
+            <div class="btn-2">
+              <img src="./icons8-facebook-32.png" alt="" />Sign Up
+            </div>
+          </div>
+          <div class="or">OR</div>
+        </div>
+        <!-- /**
                * ! User name Input here
             **/ -->
-            <div>
-                <label for="username">User Name</label>
-                <i class="fa-solid fa-user"></i>
-                <input type="text" name="username" id="username" placeholder="User name here">
-                <i class="fa-solid fa-circle-exclamation failure-icon"></i>
-                <i class="fa-solid fa-circle-check success-icon"></i>
-                <div class="error"></div>
-            </div>
-            <!-- /**
+        <div>
+          <label for="username">User Name</label>
+          <i class="fa-solid fa-user"></i>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="User name here"
+          />
+          <i class="fa-solid fa-circle-exclamation failure-icon"></i>
+          <i class="fa-solid fa-circle-check success-icon"></i>
+          <div class="error"></div>
+        </div>
+        <!-- /**
                * ! Email Input here
             **/ -->
-            <div>
-                <label for="email">Email</label>
-                <i class="fa-solid fa-envelope"></i>
-                <input type="text" name="email" id="email" placeholder="Email here">
-                <i class="fa-solid fa-circle-exclamation failure-icon"></i>
-                <i class="fa-solid fa-circle-check success-icon"></i>
-                <div class="error"></div>
-            </div>
-            <!-- /**
+        <div>
+          <label for="email">Email</label>
+          <i class="fa-solid fa-envelope"></i>
+          <input type="text" name="email" id="email" placeholder="Email here" />
+          <i class="fa-solid fa-circle-exclamation failure-icon"></i>
+          <i class="fa-solid fa-circle-check success-icon"></i>
+          <div class="error"></div>
+        </div>
+        <!-- /**
                * ! Password Input here
             **/ -->
-            <div>
-                <label for="password">Password</label>
-                <i class="fa-solid fa-lock"></i>
-                <input type="text" name="password" id="password" placeholder="Password here">
-                <i class="fa-solid fa-circle-exclamation failure-icon"></i>
-                <i class="fa-solid fa-circle-check success-icon"></i>
-                <div class="error"></div>
-            </div>
-            <button type="submit" id="submit">Submit Form</button>
-        </form>
-        <!-- Login Side -->
+        <div>
+          <label for="password">Password</label>
+          <i class="fa-solid fa-lock"></i>
+          <input
+            type="text"
+            name="password"
+            id="password"
+            placeholder="Password here"
+          />
+          <i class="fa-solid fa-circle-exclamation failure-icon"></i>
+          <i class="fa-solid fa-circle-check success-icon"></i>
+          <div class="error"></div>
+        </div>
+        <button type="submit" id="submit">Submit Form</button>
+      </form>
+      <!-- Login Side -->
       <div class="login-side">
         <h1>Login</h1>
         <p>Login using your account information.</p>
@@ -74,7 +91,6 @@
               type="text"
               placeholder="Username"
               id="username"
-              form="login"
             />
             <small style="font-size: 12px"
               >The username cannot be blank, must exist (within localStorage).
@@ -82,6 +98,7 @@
               username field accepts (and should not invalidate) mixed-case
               input.
             </small>
+            <div class="error"></div>
           </div>
 
           <div class="form-control">
@@ -91,31 +108,26 @@
               type="text"
               placeholder="Password"
               id="password"
-              form="login"
             /><br /><br />
             <small style="font-size: 12px"
               >The password cannot be blank, must be correct (validate against
               localStorage).
             </small>
+            <div class="error"></div>
           </div>
 
           <div class="flex-row">
-            <input
-              name="persist"
-              type="checkbox"
-              id="persist"
-              form="login"
-            />
+            <input name="persist" type="checkbox" id="persist" form="login" />
             <label for="persist">Keep me logged in.</label>
-        </div>
-            <div class="form-control">
-              <input type="submit" id="login-btn" form="login" />
-            </div>
+          </div>
+          <div class="form-control">
+            <input type="submit" id="login-btn" form="login" />
+          </div>
           <br /><br />
         </form>
 
         <p>Forgot your <a href="#">Username</a> or <a href="#">Password?</a></p>
       </div>
     </div>
-</body>
+  </body>
 </html>

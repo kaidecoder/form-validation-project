@@ -1,3 +1,6 @@
+/** 
+* ! Adding a first form validation
+* **/
 let getById = (id) => document.getElementById(id);
 let getByClass = (classes) => document.getElementsByClassName(classes);
 
@@ -64,9 +67,41 @@ function isValidField(field) {
   }
 }
 
+/**
+ * ! Adding a second form validation
+ * **/
 form2.addEventListener("submit", (e) => {
-  // e.preventDefault();
+  console.log("form2")
+  form2.reset()
+  e.preventDefault();
 
-  validateField(username, 0, "Username cannot be empty");
-  validateField(password, 2, "Password cannot be empty");
+  validateFieldForLogin(username, 0, "Username cannot be empty");
+  validateFieldForLogin(password, 2, "Password cannot be empty");
 });
+
+function isValidFieldForLogin(field) {
+  // Customize the validation rules for login form fields
+  if (field === username) {
+    return /^(?=\S)(?!.*[\s])(?!.*[^\w\s]).{4,}(?:(.).*?(?!\1)){2,}$/.test(
+      field.value.trim()
+    );
+  } else if (field === password) {
+    return /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-])([^password]).{12,}$/.test(
+      field.value.trim()
+    );
+  }
+}
+
+function validateFieldForLogin(field, serial, message) {
+  if (field.value.trim() === "") {
+    onError(serial, `${field.id} is not valid`);
+  } else {
+    if (!isValidFieldForLogin(field)) {
+      onError(serial, `${field.id} is not valid for login`);
+    } else {
+      onSuccess(serial, `${field.id} is valid for login`);
+    }
+  }
+}
+
+

@@ -16,7 +16,7 @@
     <div class="container">
       <form id="form">
         <div class="social">
-          <div class="title">Get Started</div>
+          <div class="title">Sign UP</div>
           <div class="question">
             Already have an account?
             <br />
@@ -75,7 +75,7 @@
           <i class="fa-solid fa-circle-check success-icon"></i>
           <div class="error"></div>
         </div>
-        <button type="submit" id="submit">Submit Form</button>
+        <button type="submit" id="submit">Submit Signup Form</button>
       </form>
       <!-- Login Side -->
       <div class="login-side">
@@ -83,50 +83,43 @@
         <p>Login using your account information.</p>
 
         <!-- Login Form -->
-        <form id="login" style="border-bottom: 1px solid lightgray">
-          <div class="form-control">
-            <i class="fa-solid fa-user"></i>
-            <input
-              name="username"
-              type="text"
-              placeholder="Username"
-              id="username"
-            />
-            <small style="font-size: 12px"
-              >The username cannot be blank, must exist (within localStorage).
-              Remember that usernames are stored in all lowercase, but the
-              username field accepts (and should not invalidate) mixed-case
-              input.
-            </small>
-            <div class="error"></div>
-          </div>
-
-          <div class="form-control">
-            <i class="fa-solid fa-lock"></i>
-            <input
-              name="password"
-              type="text"
-              placeholder="Password"
-              id="password"
-            /><br /><br />
-            <small style="font-size: 12px"
-              >The password cannot be blank, must be correct (validate against
-              localStorage).
-            </small>
-            <div class="error"></div>
-          </div>
-
-          <div class="flex-row">
-            <input name="persist" type="checkbox" id="persist" form="login" />
-            <label for="persist">Keep me logged in.</label>
-          </div>
-          <div class="form-control">
-            <input type="submit" id="login-btn" form="login" />
-          </div>
-          <br /><br />
+        <form id="login">
+           <!-- /**
+               * ! User name Input here
+            **/ -->
+        <div>
+          <label for="username">User Name</label>
+          <i class="fa-solid fa-user"></i>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="User name here"
+          />
+          <i class="fa-solid fa-circle-exclamation failure-icon"></i>
+          <i class="fa-solid fa-circle-check success-icon"></i>
+          <div class="error"></div>
+        </div>
+        <!-- /**
+               * ! Password Input here
+            **/ -->
+        <div>
+          <label for="password">Password</label>
+          <i class="fa-solid fa-lock"></i>
+          <input
+            type="text"
+            name="password"
+            id="password"
+            placeholder="Password here"
+          />
+          <i class="fa-solid fa-circle-exclamation failure-icon"></i>
+          <i class="fa-solid fa-circle-check success-icon"></i>
+          <div class="error"></div>
+        </div>
+        <button type="submit" id="submit">Submit Login Form</button>
         </form>
 
-        <p>Forgot your <a href="#">Username</a> or <a href="#">Password?</a></p>
+        
       </div>
     </div>
   </body>

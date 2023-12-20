@@ -4,18 +4,21 @@ let getByClass = (classes) => document.getElementsByClassName(classes);
 let username = getById("username"),
   password = getById("password"),
   email = getById("email"),
-  form = getById("form"),
+  form1 = getById("form"),
+  form2 = getById("login")
   errorMsg = getByClass("error"),
   successIcon = getByClass("success-icon"),
   failureIcon = getByClass("failure-icon");
 
-form.addEventListener("submit", (e) => {
+form1.addEventListener("submit", (e) => {
   e.preventDefault();
 
   validateField(username, 0, "Username cannot be empty");
   validateField(email, 1, "Email cannot be empty");
   validateField(password, 2, "Password cannot be empty");
 });
+
+form2.submit()
 
 let validateField = (field, serial, message) => {
   if (field.value.trim() === "") {

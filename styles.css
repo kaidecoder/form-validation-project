@@ -12,6 +12,7 @@ body{
 
 .container{
     display: flex;
+    gap: 40px;
 }
 
 .title{
@@ -207,6 +208,7 @@ button:hover{
   .flex-row {
     display: flex;
     align-items: center;
+    font-size: 18px;
   }
   .form-container label {
     align-items: center;

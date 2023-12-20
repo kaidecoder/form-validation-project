@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Validation Project</title>
     <link rel="stylesheet" href="./styles.css">
-    <script src="./validation.js" defer></script>
+    <script src="./main.js" defer></script>
     <script src="https://kit.fontawesome.com/8ec63f7015.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -68,6 +68,7 @@
         <!-- Login Form -->
         <form id="login" style="border-bottom: 1px solid lightgray">
           <div class="form-control">
+            <i class="fa-solid fa-user"></i>
             <input
               name="username"
               type="text"
@@ -75,8 +76,6 @@
               id="username"
               form="login"
             />
-            <span class="input-icon"><i class="fa-solid fa-user"></i></span
-            ><br />
             <small style="font-size: 12px"
               >The username cannot be blank, must exist (within localStorage).
               Remember that usernames are stored in all lowercase, but the
@@ -86,15 +85,14 @@
           </div>
 
           <div class="form-control">
+            <i class="fa-solid fa-lock"></i>
             <input
               name="password"
               type="text"
               placeholder="Password"
               id="password"
               form="login"
-            />
-            <span class="input-icon"><i class="fa-solid fa-key"></i></span
-            ><br /><br />
+            /><br /><br />
             <small style="font-size: 12px"
               >The password cannot be blank, must be correct (validate against
               localStorage).
@@ -106,14 +104,13 @@
               name="persist"
               type="checkbox"
               id="persist"
-              required
               form="login"
             />
             <label for="persist">Keep me logged in.</label>
+        </div>
             <div class="form-control">
               <input type="submit" id="login-btn" form="login" />
             </div>
-          </div>
           <br /><br />
         </form>
 

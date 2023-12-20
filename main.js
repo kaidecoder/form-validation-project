@@ -1,38 +1,37 @@
-let id = (id) => document.getElementById(id)
-let classes = (classes) => document.getElementsByClassName(classes)
+let getId = (id) => document.getElementById(id)
+let getClass = (classes) => document.getElementsByClassName(classes)
 
-let username = id("username"), 
-password = id("password"),
-email = id("email"),
-form = id("form"),
-errorMsg = classes("error"),
-successIcon = classes('success-icon'),
-failureIcon = classes("failure-icon");
+let username = getId("username"), 
+password = getId("password"),
+email = getId("email"),
+form = getId("form"),
+errorMsg = getClass("error"),
+successIcon = getClass('success-icon'),
+failureIcon = getClass("failure-icon");
 
 form.addEventListener("submit", (e) => {
     e.preventDefault()
     
-    engine(username, 0, "username cannot be empty")
-    engine(email, 1, "email cannot be empty")
-    engine(password, 2, "password cannot be empty")
+    validateInput(username, 0, "username cannot be empty")
+    validateInput(email, 1, "email cannot be empty")
+    validateInput(password, 2, "password cannot be empty")
 })
 
-let engine = (id, serial, message) => {
-    if(id.value.trim() === ""){
-        onError(id, `${id} is not valid`)
+let validateInput = (input, serial, message) => {
+    if(input.value.trim() === ""){
+        onError(serial, `${input.id} is empty`)
     }else{
-        if(!isValidId(id.value.trim())){
-            onError(`${id}`, `${id} is not valid`)
+        if(!isValidInput(input)){
+            onError(`${serial}`, `${input.id} is not valid`)
         }else{
-            onSuccess(`${id}`, `${id} is valid`)
+            onSuccess(`${serial}`, `${input.id} is valid`)
         }
     }
 }
 
 function onSuccess(serial, message) {
     // console.log(input.value);
-    errorMsg[serial].innerHTML = message
-    failureIcon[serial].style.opacity = "0"
+    clearError(serial)
     successIcon[serial].style.opacity = "1"
   }
 
@@ -43,18 +42,23 @@ function onError(serial, message) {
     successIcon[serial].style.opacity = "0"
   }
 
-function isValidId(id){
-    if(id === username){
+  function clearError(serial) {
+    errorMsg[serial].innerHTML = "";
+    failureIcon[serial].style.opacity = "0";
+  }
+
+function isValidInput(input){
+    if(input === username){
         return /^(?=\S)(?!.*[\s])(?!.*[^\w\s]).{4,}(?:(.).*?(?!\1)){2,}$/.test(
-            username,
+            input.value.trim()
           );
-    }else if(id === email){
+    }else if(input === email){
         return /^(?!.*@example\.com)[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?)+$/.test(
-            email,
+            input.value.trim()
           );
-    }else if(id === password){
+    }else if(input === password){
         return /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-])([^password]).{12,}$/.test(
-            password,
+            input.value.trim()
           );
     }
 }
@@ -107,3 +111,22 @@ function isValidId(id){
 ### 
 
  * **/
+
+
+/**
+ * ! Chap GPT HELP
+ * 
+ * It looks like you've written a JavaScript code snippet for form validation. The code appears to be using a modular approach to handle different form fields (username, email, and password) and checking their validity. Here are a few suggestions and improvements:
+
+Function Naming: Consider using more descriptive names for your functions. For example, instead of engine, you could use validateField or something similar.
+
+Error Handling: It's a good practice to handle errors gracefully. For example, if id in the isValidId function is not one of the expected values (username, email, password), the function will always return false. It might be better to throw an error or handle this case differently.
+
+Regular Expressions: The regular expressions in the isValidId function seem to be intended for validation, but you are currently testing the field values against the field elements themselves (e.g., username === id). Instead, you should use the provided id parameter.
+
+Password Regular Expression: The regular expression for the password might need some adjustment. It seems to check for certain conditions, but the logic might need review.
+
+Code Duplication: The onSuccess and onError functions share a lot of common code. You could refactor them to reduce duplication.
+
+
+**/

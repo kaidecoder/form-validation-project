@@ -7,4 +7,4 @@
 - The event listener on form1 is set up to prevent the default form submission behavior and instead calls the validateField function for the username, email, and password fields when the form is submitted.
 - Similar validation is performed for form2 (a login form) in the event listener attached to it.
 
-PROBLEM: The login button is controlling the username and password fields of the signup button!!
+PROBLEM: The login button is controlling the username and password fields of the signup button!! FIXED!!

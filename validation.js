@@ -21,6 +21,7 @@ form1.addEventListener("submit", (e) => {
   validateField(usernameForm1, 0, "Username cannot be empty");
   validateField(emailForm1, 1, "Email cannot be empty");
   validateField(passwordForm1, 2, "Password cannot be empty");
+  
 });
 
 let validateField = (field, serial, message) => {
@@ -73,30 +74,33 @@ function isValidField(field) {
 form2.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  validateFieldForLogin(usernameForm2, 0, "Username cannot be empty");
-  validateFieldForLogin(passwordForm2, 2, "Password cannot be empty");
+  validateFieldForLogin(usernameForm2, 3, "Username cannot be empty");
+  validateFieldForLogin(passwordForm2, 4, "Password cannot be empty");
+ 
 });
 
-function isValidFieldForLogin(field) {
-  if (field === usernameForm2) {
+function isValidFieldForLogin(input) {
+  
+  if (input=== usernameForm2) {
     return /^(?=\S)(?!.*[\s])(?!.*[^\w\s]).{4,}(?:(.).*?(?!\1)){2,}$/.test(
-      field.value.trim(),
+      input.value.trim(),
     );
-  } else if (field === passwordForm2) {
+  } else if (input === passwordForm2) {
     return /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{12,}$/.test(
-      field.value.trim(),
+      input.value.trim(),
     );
   }
 }
 
-function validateFieldForLogin(field, serial, message) {
-  if (field.value.trim() === "") {
-    onError(serial, `${field.id} is not valid`);
+
+function validateFieldForLogin(input, serial, message) {
+  if (input.value.trim() === "") {
+    onError(serial, `${input.id} is not valid`);
   } else {
     if (!isValidFieldForLogin(field)) {
-      onError(serial, `${field.id} is not valid for login`);
+      onError(serial, `${input.id} is not valid for login`);
     } else {
-      onSuccess(serial, `${field.id} is valid for login`);
+      onSuccess(serial, `${input.id} is valid for login`);
     }
   }
 }

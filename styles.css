@@ -54,6 +54,13 @@ input:focus {
   border: 2px solid #f2796e;
 }
 
+.login-side{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /**
 * ! style rules for social section
 **/

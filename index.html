@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form Validation Project</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./styles.css" />
-    <script src="./main.js" defer></script>
+    <script src="./validation.js" defer></script>
     <script
       src="https://kit.fontawesome.com/8ec63f7015.js"
       crossorigin="anonymous"
@@ -84,42 +85,45 @@
 
         <!-- Login Form -->
         <form id="login">
-           <!-- /**
+          <!-- /**
                * ! User name Input here
             **/ -->
-        <div>
-          <label for="username">User Name</label>
-          <i class="fa-solid fa-user"></i>
-          <input
-            type="text"
-            name="username"
-            id="username"
-            placeholder="User name here"
-          />
-          <i class="fa-solid fa-circle-exclamation failure-icon"></i>
-          <i class="fa-solid fa-circle-check success-icon"></i>
-          <div class="error"></div>
-        </div>
-        <!-- /**
+          <div>
+            <label for="usernameForm2">User Name</label>
+            <i class="fa-solid fa-user"></i>
+            <input
+              type="text"
+              name="username"
+              id="usernameForm2"
+              placeholder="Username"
+            />
+            <i class="fa-solid fa-circle-exclamation failure-icon"></i>
+            <i class="fa-solid fa-circle-check success-icon"></i>
+            <div class="error"></div>
+          </div>
+          <!-- /**
                * ! Password Input here
             **/ -->
-        <div>
-          <label for="password">Password</label>
-          <i class="fa-solid fa-lock"></i>
+          <div>
+            <label for="passwordForm2">Password</label>
+            <i class="fa-solid fa-lock"></i>
+            <input
+              type="password"
+              name="password"
+              id="passwordForm2"
+              placeholder="Password"
+            />
+            <i class="fa-solid fa-circle-exclamation failure-icon"></i>
+            <i class="fa-solid fa-circle-check success-icon"></i>
+            <div class="error"></div>
+          </div>
           <input
-            type="text"
-            name="password"
-            id="password"
-            placeholder="Password here"
+            type="submit"
+            value="Submit Login Form"
+            id="submitForm2"
+            form="login"
           />
-          <i class="fa-solid fa-circle-exclamation failure-icon"></i>
-          <i class="fa-solid fa-circle-check success-icon"></i>
-          <div class="error"></div>
-        </div>
-        <button type="submit" id="submit">Submit Login Form</button>
         </form>
-
-        
       </div>
     </div>
   </body>

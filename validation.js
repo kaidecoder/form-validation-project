@@ -1,27 +1,27 @@
-/** 
-* ! Adding a first form validation
-* **/
+/**
+ * ! Adding a first form validation
+ * **/
 let getById = (id) => document.getElementById(id);
 let getByClass = (classes) => document.getElementsByClassName(classes);
 
-let username = getById("username"),
-  password = getById("password"),
-  email = getById("email"),
+const usernameForm1 = getById("username"),
+  usernameForm2 = getById("usernameForm2"),
+  passwordForm1 = getById("password"),
+  passwordForm2 = getById("passwordForm2"),
+  emailForm1 = getById("email"),
   form1 = getById("form"),
-  form2 = getById("login")
-  errorMsg = getByClass("error"),
-  successIcon = getByClass("success-icon"),
-  failureIcon = getByClass("failure-icon");
+  form2 = getById("login");
+(errorMsg = getByClass("error")),
+  (successIcon = getByClass("success-icon")),
+  (failureIcon = getByClass("failure-icon"));
 
 form1.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  validateField(username, 0, "Username cannot be empty");
-  validateField(email, 1, "Email cannot be empty");
-  validateField(password, 2, "Password cannot be empty");
+  validateField(usernameForm1, 0, "Username cannot be empty");
+  validateField(emailForm1, 1, "Email cannot be empty");
+  validateField(passwordForm1, 2, "Password cannot be empty");
 });
-
-
 
 let validateField = (field, serial, message) => {
   if (field.value.trim() === "") {
@@ -52,17 +52,17 @@ function clearError(serial) {
 }
 
 function isValidField(field) {
-  if (field === username) {
+  if (field === usernameForm1) {
     return /^(?=\S)(?!.*[\s])(?!.*[^\w\s]).{4,}(?:(.).*?(?!\1)){2,}$/.test(
-      field.value.trim()
+      field.value.trim(),
     );
-  } else if (field === email) {
+  } else if (field === emailForm1) {
     return /^(?!.*@example\.com)[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?)+$/.test(
-      field.value.trim()
+      field.value.trim(),
     );
-  } else if (field === password) {
+  } else if (field === passwordForm1) {
     return /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-])([^password]).{12,}$/.test(
-      field.value.trim()
+      field.value.trim(),
     );
   }
 }
@@ -71,23 +71,20 @@ function isValidField(field) {
  * ! Adding a second form validation
  * **/
 form2.addEventListener("submit", (e) => {
-  console.log("form2")
-  form2.reset()
   e.preventDefault();
 
-  validateFieldForLogin(username, 0, "Username cannot be empty");
-  validateFieldForLogin(password, 2, "Password cannot be empty");
+  validateFieldForLogin(usernameForm2, 0, "Username cannot be empty");
+  validateFieldForLogin(passwordForm2, 2, "Password cannot be empty");
 });
 
 function isValidFieldForLogin(field) {
-  // Customize the validation rules for login form fields
-  if (field === username) {
+  if (field === usernameForm2) {
     return /^(?=\S)(?!.*[\s])(?!.*[^\w\s]).{4,}(?:(.).*?(?!\1)){2,}$/.test(
-      field.value.trim()
+      field.value.trim(),
     );
-  } else if (field === password) {
-    return /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-])([^password]).{12,}$/.test(
-      field.value.trim()
+  } else if (field === passwordForm2) {
+    return /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{12,}$/.test(
+      field.value.trim(),
     );
   }
 }
@@ -103,5 +100,3 @@ function validateFieldForLogin(field, serial, message) {
     }
   }
 }
-
-

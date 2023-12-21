@@ -1,68 +1,67 @@
-let getId = (id) => document.getElementById(id)
-let getClass = (classes) => document.getElementsByClassName(classes)
+let getId = (id) => document.getElementById(id);
+let getClass = (classes) => document.getElementsByClassName(classes);
 
-let username = getId("username"), 
-password = getId("password"),
-email = getId("email"),
-form = getId("form"),
-errorMsg = getClass("error"),
-successIcon = getClass('success-icon'),
-failureIcon = getClass("failure-icon");
+let username = getId("username"),
+  password = getId("password"),
+  email = getId("email"),
+  form = getId("form"),
+  errorMsg = getClass("error"),
+  successIcon = getClass("success-icon"),
+  failureIcon = getClass("failure-icon");
 
 form.addEventListener("submit", (e) => {
-    e.preventDefault()
-    
-    validateInput(username, 0, "username cannot be empty")
-    validateInput(email, 1, "email cannot be empty")
-    validateInput(password, 2, "password cannot be empty")
-})
+  e.preventDefault();
+
+  validateInput(username, 0, "username cannot be empty");
+  validateInput(email, 1, "email cannot be empty");
+  validateInput(password, 2, "password cannot be empty");
+});
 
 let validateInput = (input, serial, message) => {
-    if(input.value.trim() === ""){
-        onError(serial, `${input.id} is empty`)
-    }else{
-        if(!isValidInput(input)){
-            onError(`${serial}`, `${input.id} is not valid`)
-        }else{
-            onSuccess(`${serial}`, `${input.id} is valid`)
-        }
+  if (input.value.trim() === "") {
+    onError(serial, `${input.id} is empty`);
+  } else {
+    if (!isValidInput(input)) {
+      onError(`${serial}`, `${input.id} is not valid`);
+    } else {
+      onSuccess(`${serial}`, `${input.id} is valid`);
     }
-}
+  }
+};
 
 function onSuccess(serial, message) {
-    // console.log(input.value);
-    clearError(serial)
-    successIcon[serial].style.opacity = "1"
-  }
-
-function onError(serial, message) {
-    // console.log(input.value);
-    errorMsg[serial].innerHTML = message
-    failureIcon[serial].style.opacity = "1"
-    successIcon[serial].style.opacity = "0"
-  }
-
-  function clearError(serial) {
-    errorMsg[serial].innerHTML = "";
-    failureIcon[serial].style.opacity = "0";
-  }
-
-function isValidInput(input){
-    if(input === username){
-        return /^(?=\S)(?!.*[\s])(?!.*[^\w\s]).{4,}(?:(.).*?(?!\1)){2,}$/.test(
-            input.value.trim()
-          );
-    }else if(input === email){
-        return /^(?!.*@example\.com)[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?)+$/.test(
-            input.value.trim()
-          );
-    }else if(input === password){
-        return /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-])([^password]).{12,}$/.test(
-            input.value.trim()
-          );
-    }
+  // console.log(input.value);
+  clearError(serial);
+  successIcon[serial].style.opacity = "1";
 }
 
+function onError(serial, message) {
+  // console.log(input.value);
+  errorMsg[serial].innerHTML = message;
+  failureIcon[serial].style.opacity = "1";
+  successIcon[serial].style.opacity = "0";
+}
+
+function clearError(serial) {
+  errorMsg[serial].innerHTML = "";
+  failureIcon[serial].style.opacity = "0";
+}
+
+function isValidInput(input) {
+  if (input === username) {
+    return /^(?=\S)(?!.*[\s])(?!.*[^\w\s]).{4,}(?:(.).*?(?!\1)){2,}$/.test(
+      input.value.trim(),
+    );
+  } else if (input === email) {
+    return /^(?!.*@example\.com)[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?)+$/.test(
+      input.value.trim(),
+    );
+  } else if (input === password) {
+    return /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-])([^password]).{12,}$/.test(
+      input.value.trim(),
+    );
+  }
+}
 
 /**
  * TODO: 
@@ -111,7 +110,6 @@ function isValidInput(input){
 ### 
 
  * **/
-
 
 /**
  * ! Chap GPT HELP
